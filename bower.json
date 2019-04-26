@@ -1,0 +1,14 @@
+{
+    "name": "bower",
+    "description": "",
+    "main": "",
+    "authors": [
+        "huyecao <caohuyeenf1997@gmail.com>"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/huyencao/tourist",
+    "ignore": "bower_components",
+    "dependencies": {
+        "backend": "https://github.com/huyencao/bower-tourist.git"
+    }
+}
