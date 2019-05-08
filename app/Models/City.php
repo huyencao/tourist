@@ -10,9 +10,7 @@ class City extends Model
 
     protected $fillable = [
         'name',
-        'slug',
-        'description',
-        'cate_id',
+        'place_id',
     ];
 
     public function category()
@@ -22,6 +20,6 @@ class City extends Model
 
     public function places()
     {
-        return $this->hasMany('App\Models\Place');
+        return $this->belongsTo('App\Models\Place');
     }
 }

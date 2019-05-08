@@ -1,14 +1,21 @@
 {
-    "name": "bower",
-    "description": "",
-    "main": "",
-    "authors": [
-        "huyecao <caohuyeenf1997@gmail.com>"
-    ],
-    "license": "MIT",
-    "homepage": "https://github.com/huyencao/tourist",
-    "ignore": "bower_components",
-    "dependencies": {
-        "backend": "https://github.com/huyencao/bower-tourist.git"
-    }
+  "name": "tourist",
+  "description": "",
+  "main": "",
+  "authors": [
+    "huyecao <caohuyeenf1997@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/huyencao/tourist",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lib_bower": "https://github.com/huyencao/bower-tourist.git"
+  }
 }

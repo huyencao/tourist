@@ -10,7 +10,7 @@
                     {{ __('Home Website') }} </h3>
             </div>
             <div class="panel-body">
-               {{ __('This is website tourist') }}
+               <p class="home">{{ __('label.welcome') }}</p>
             </div><!-- panel body -->
         </div>
     </form>
