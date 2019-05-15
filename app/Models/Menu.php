@@ -14,6 +14,8 @@ class Menu extends Model
         'parent_id',
         'status',
         'location',
+        'cate_id',
+        'type_menu',
     ];
 
     public function categoryNews()
