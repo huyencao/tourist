@@ -12,8 +12,8 @@ class Category extends Model
         'name',
         'slug',
         'parent_id',
+        'city_id',
         'status',
-        'menu_id',
     ];
 
     public function menu()
@@ -29,5 +29,10 @@ class Category extends Model
     public function cities()
     {
         return $this->hasMany('App\Models\City');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
     }
 }

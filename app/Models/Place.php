@@ -10,13 +10,10 @@ class Place extends Model
 
     protected $fillable = [
         'name',
-        'slug',
-        'description',
-        'city_id',
     ];
 
     public function city()
     {
-        return $this->belongsTo('App\Models\City');
+        return $this->hasMany('App\Models\City');
     }
 }
