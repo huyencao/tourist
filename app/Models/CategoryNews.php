@@ -13,7 +13,6 @@ class CategoryNews extends Model
         'slug',
         'parent_id',
         'status',
-        'menu_id',
     ];
 
     public function menu()
