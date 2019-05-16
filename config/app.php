@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'image_url' => 'bower_components/backend/Backend/dist/img/',
+    'image_url' => 'bower_components/lib_bower/Backend/dist/img/',
     /*
     |--------------------------------------------------------------------------
     | Application Name

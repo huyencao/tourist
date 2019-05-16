@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /public/bower_components/
+/public/images/
 .env
 .phpunit.result.cache
 Homestead.json

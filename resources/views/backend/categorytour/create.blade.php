@@ -54,7 +54,7 @@
                                         <label class="col-md-1 control-label">{{ __('label.cate_tour.cities') }}
                                         </label>
                                         <div class="col-md-3">
-                                            <select required name="city_id" class="selecter_1" name="cate">
+                                            <select required name="city_id" class="selecter_1">
                                                 <option value="#">{{ __('label.cate_tour.create.choose_cities') }}
                                                 </option>
                                                 @foreach ($cities as $city)
@@ -69,7 +69,7 @@
                                         <label
                                             class="col-md-1 control-label">{{ __('label.cate_tour.create.status') }}</label>
                                         <div class="col-md-3">
-                                            <select required name="status" class="selecter_1" name="cate">
+                                            <select required name="status" class="selecter_1">
                                                 <option value="#">{{ __('label.cate_tour.status') }}</option>
                                                 <option value="1">{{ __('label.status_open') }}</option>
                                                 <option value="0">{{ __('label.status_close') }}</option>

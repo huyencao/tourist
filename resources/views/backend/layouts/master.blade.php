@@ -24,5 +24,5 @@
 <script type="text/javascript" src="{{ asset('bower_components/lib_bower/Backend/js/jquery-3.3.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bower_components/lib_bower/Backend/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bower_components/lib_bower/Backend/dist/js/site.min.js') }}"></script>
-
+@stack('scripts')
 </html>
