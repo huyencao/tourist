@@ -24,4 +24,9 @@ class CategoryNews extends Model
     {
         return $this->hasMany('App\Models\News');
     }
+
+    public function scopeParent($query)
+    {
+        return $query->where('parent_id', 0);
+    }
 }

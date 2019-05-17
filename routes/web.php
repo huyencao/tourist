@@ -15,4 +15,6 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('banner', 'BannerController');
     Route::resource('catetour', 'CategoryTourController');
+    Route::resource('catenews', 'CategoryNewsController');
+
 });
