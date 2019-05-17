@@ -37,7 +37,9 @@
                                         <tr>
                                             <td>{{ ++$key}}</td>
                                             <td> {{ $banner['name'] }} </td>
-                                            <td><img src="{{ asset($banner['link_url']) }}" class="image" alt=""></td>
+                                            <td>
+                                                <img src="{{ asset($banner['media']['link_url']) }}" class="image" alt="">
+                                            </td>
                                             @if ($banner['status'] == 1)
                                             <td>{{ __('Open') }}</td>
                                             @else

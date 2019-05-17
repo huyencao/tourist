@@ -115,7 +115,6 @@ class CategoryTourController extends Controller
     public function destroy($id)
     {
         try {
-            $category_item = $this->category->find($id);
             $category_item = $this->category->delete($id);
 
             return redirect(route('catetour.index'));

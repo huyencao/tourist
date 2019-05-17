@@ -18,6 +18,6 @@ class Banner extends Model
 
     public function media()
     {
-        return $this->hasOne('App\Models\Media');
+        return $this->belongsTo('App\Models\Media');
     }
 }

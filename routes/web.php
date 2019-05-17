@@ -16,5 +16,5 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('banner', 'BannerController');
     Route::resource('catetour', 'CategoryTourController');
     Route::resource('catenews', 'CategoryNewsController');
-
+    Route::resource('media', 'MediaController');
 });

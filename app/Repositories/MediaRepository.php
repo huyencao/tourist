@@ -12,9 +12,14 @@ class MediaRepository extends EloquentRepository
         return \App\Models\Media::class;
     }
 
-    public function findOrFail($id)
+    public function findImage($id)
     {
-        return Media::findOrFail($id);
+        $data = Media::find($id);
+        if ($data == null) {
+            return false;
+        } else {
+            return $data;
+        }
     }
 
     public function storeFileUpload($request)
@@ -46,4 +51,8 @@ class MediaRepository extends EloquentRepository
         return $image;
     }
 
+    public function listAllImage()
+    {
+        return Media::all();
+    }
 }

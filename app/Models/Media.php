@@ -16,21 +16,21 @@ class Media extends Model
 
     public function banner()
     {
-        return $this->belongsTo('App\Models\Banner');
+        return $this->hasOne('App\Models\Banner');
     }
 
     public function tour()
     {
-        return $this->belongsTo('App\Models\Tour');
+        return $this->hasOne('App\Models\Tour');
     }
 
     public function news()
     {
-        return $this->belongsTo('App\Models\News');
+        return $this->hasOne('App\Models\News');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne('App\Models\User');
     }
 }
