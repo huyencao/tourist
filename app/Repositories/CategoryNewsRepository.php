@@ -24,6 +24,6 @@ class CategoryNewsRepository extends EloquentRepository
 
     public function newsSelect()
     {
-        return CategoryNews::all();
+        return CategoryNews::orderBy('name', 'DESC')->get();
     }
 }

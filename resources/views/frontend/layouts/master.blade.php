@@ -21,6 +21,7 @@
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/bootstrap.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/owl.carousel.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/main.js') }}" type="text/javascript"></script>
+    @stack('scripts')
 </body>
 
 </html>
