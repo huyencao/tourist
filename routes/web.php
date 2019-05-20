@@ -18,3 +18,8 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('catenews', 'CategoryNewsController');
     Route::resource('media', 'MediaController');
 });
+
+Route::namespace('Frontend')->prefix('tourist')->group(function(){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('about', 'AboutController@index')->name('about');
+});
