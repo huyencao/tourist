@@ -8,10 +8,10 @@
                 <div class="col-md-10">
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span
                                 class="fa fa-angle-double-left" data-toggle="offcanvas"
-                                title="{{ __('Maximize Panel') }}"></span></a>{{ __('label.cate_tour.list') }}</h3>
+                                title="{{ __('Maximize Panel') }}"></span></a> {{ __('List category news') }}</h3>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('catetour.create') }}" class="btn btn-primary">{{ __('label.add') }}</a>
+                    <a href="{{ route('catenews.create') }}" class="btn btn-primary">{{ __('label.add') }}</a>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                                 <tbody>
                                     @foreach ($data as $key => $item)
                                     <tr>
-                                        <td>{{ $item['id'] }}</td>
+                                        <td>{{ ++$key }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         @if ($item['status'] == 1)
                                             <td>{{ __('Open') }}</td>
@@ -41,25 +41,22 @@
                                             <td>{{ __('Close') }}</td>
                                         @endif
                                         @if ($item['parent_id'] != 0 && isset($item['parent_id']))
-                                        @foreach ($data as $key => $cate )
-
-                                        @if ($cate['id'] == $item['parent_id'])
-
-                                        <td>{{ $cate['name'] }}</td>
-
-                                        @endif
-
-                                        @endforeach
+                                            @foreach ($data as $key => $cate )
+                                                @if ($cate['id'] == $item['parent_id'])
+                                                    <td>{{ $cate['name'] }}</td>
+                                                @endif
+                                            @endforeach
                                         @else
-                                        <td>{{ __('No') }}</td>
+                                            <td>{{ __('Parent') }}</td>
                                         @endif
                                         <td>
-                                            <form action="{{ route('catetour.destroy', $item['id']) }}" method="POST">
-                                            @method('DELETE')
-                                            {{ csrf_field() }}
-                                                <button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <form action="{{ route('catenews.destroy', $item['id']) }}" method="POST">
+                                                @method('DELETE')
+                                                {{ csrf_field() }}
+                                                <button type="submit"><i class="fa fa-trash-o"
+                                                        aria-hidden="true"></i></button>
                                             </form>
-                                            <a href="{{ route('catetour.edit', $item['id']) }}"
+                                            <a href="{{ route('catenews.edit', $item['id']) }}"
                                                 class="glyphicon glyphicon-pencil"></a>
                                         </td>
                                     </tr>
