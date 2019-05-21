@@ -20,7 +20,7 @@ class News extends Model
 
     public function media()
     {
-        return $this->hasOne('App\Models\Media');
+        return $this->belongsTo('App\Models\Media');
     }
 
     public function categoryNews()

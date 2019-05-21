@@ -13,13 +13,20 @@ class BannerRepository extends EloquentRepository
         return \App\Models\Banner::class;
     }
 
-    public function findOrFail($id)
+    public function findBanner($id)
     {
-        return Banner::findOrFail($id);
+        $data = Banner::find($id);
+        if ($data == null) {
+            return false;
+        } else {
+            return $data;
+        }
     }
 
     public function cateSelect()
     {
-        return Banner::select('banners.id', 'banners.name', 'status', 'location', 'media_id', 'link_url' )->leftJoin('medias', 'banners.media_id', '=', 'medias.id' )->orderBy('banners.name', 'ASC')->get();
+        $banner = Banner::with('media')->orderBy('name', 'ASC')->get();
+
+        return $banner;
     }
 }

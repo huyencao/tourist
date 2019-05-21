@@ -82,8 +82,8 @@ class BannerController extends Controller
     public function edit($id)
     {
         try {
-            $banner = $this->banner->findOrFail($id);
-            $link_image = $this->banner_image->findOrFail($banner->media_id);
+            $banner = $this->banner->findBanner($id);
+            $link_image = $this->banner_image->findImage($banner->media_id);
 
             return view('backend.banner.edit', compact('banner', 'link_image'));
         } catch (ModelNotFoundException $ex) {
@@ -121,13 +121,13 @@ class BannerController extends Controller
     public function destroy($id)
     {
         try {
-            $banner = $this->banner->findOrFail($id);
-            $image = $this->banner_image->findOrFail($banner->media_id);
-            if(file_exists($image->link_url)){
+            $banner = $this->banner->findBanner($id);
+            $image = $this->banner_image->findImage($banner->media_id);
+            if (file_exists($image->link_url)) {
                 unlink($image->link_url);
             }
-            $image = $this->banner_image->delete($banner->media_id);
-            $banner = $this->banner->delete($id);
+            $delete_image = $this->banner_image->delete($banner->media_id);
+            $delete_banner = $this->banner->delete($id);
 
             return redirect()->route('banner.index');
         } catch (ModelNotFoundException $ex) {
