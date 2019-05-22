@@ -2,6 +2,11 @@
 
 return [
     'image_url' => 'bower_components/lib_bower/Backend/dist/img/',
+    'img_slider' => 'bower_components/lib_bower/Frontend/images/slider/',
+    'img_tour' => 'bower_components/lib_bower/Frontend/images/tour/',
+    'img_pay' => 'bower_components/lib_bower/Frontend/images/pay/',
+    'img_frontend' => 'bower_components/lib_bower/Frontend/images/',
+    /*
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -174,6 +179,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 
