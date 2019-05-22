@@ -11,4 +11,11 @@ class CategoryRepository extends EloquentRepository
     {
         return \App\Models\Category::class;
     }
+
+    public function listCate()
+    {
+        $cate = Category::all();
+
+        return $cate;
+    }
 }

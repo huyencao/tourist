@@ -14,13 +14,12 @@ class TypeTour extends Model
         'child_price',
         'adult_price',
         'tour_code',
-        'departure_day',
         'start_day',
         'end_day',
     ];
 
     public function tour()
     {
-        return $this->belongsTo('App\Models\Tour');
+        return $this->belongsTo(Tour::class, 'tour_id', 'id');
     }
 }

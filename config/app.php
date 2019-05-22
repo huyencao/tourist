@@ -6,6 +6,7 @@ return [
     'img_tour' => 'bower_components/lib_bower/Frontend/images/tour/',
     'img_pay' => 'bower_components/lib_bower/Frontend/images/pay/',
     'img_frontend' => 'bower_components/lib_bower/Frontend/images/',
+    'tour' => 10,
     /*
     /*
     |--------------------------------------------------------------------------
