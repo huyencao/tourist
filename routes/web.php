@@ -19,6 +19,7 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('media', 'MediaController');
     Route::resource('news', 'NewsController');
     Route::resource('tour', 'TourController');
+    Route::resource('user', 'UserController');
 });
 
 Route::namespace('Frontend')->prefix('tourist')->group(function(){

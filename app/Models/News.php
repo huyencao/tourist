@@ -20,7 +20,7 @@ class News extends Model
 
     public function media()
     {
-        return $this->belongsTo('App\Models\Media');
+        return $this->belongsTo(Media::class, 'media_id', 'id');
     }
 
     public function categoryNews()

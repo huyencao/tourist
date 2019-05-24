@@ -21,20 +21,21 @@ class User extends Model
         'fullname',
         'role',
         'avatar_id',
+        'password_reset',
     ];
 
     public function media()
     {
-        return $this->belongsTo('App\Models\Media');
+        return $this->belongsTo(Media::class, 'avatar_id', 'id');
     }
 
     public function orderTours()
     {
-        return $this->hasMany('App\Models\OrderTour');
+        return $this->hasMany(OrderTour::class);
     }
 
     public function reviews()
     {
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany(Review::class);
     }
 }
