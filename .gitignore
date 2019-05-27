@@ -5,8 +5,9 @@
 /vendor
 /public/bower_components/
 /public/images/
+/public/assets/
 /public/css/
-/public/js/
+/public/uploads/
 .env
 .phpunit.result.cache
 Homestead.json

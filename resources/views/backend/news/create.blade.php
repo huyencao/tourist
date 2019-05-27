@@ -1,5 +1,7 @@
 @extends('backend.layouts.master')
 
+@section('title', __('label.news'))
+
 @section('content')
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -13,6 +15,7 @@
     {{ session('message') }}
 </div>
 @endif
+
 <div class="col-xs-12 col-sm-9 content">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -24,9 +27,8 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('banner.update', $banner->id) }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('news.store') }}" enctype="multipart/form-data" method="POST">
             {{ csrf_field() }}
-            {{ method_field('PUT') }}
             <div class="panel-body">
                 <div class="content-row">
                     <div class="row">
@@ -36,8 +38,21 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{ __('label.name') }}</label>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="{{ __('label.enter_title') }}" id="title"
-                                                class="form-control" name="name" value="{{ $banner['name'] }}">
+                                            <input type="text" placeholder="{{ __('label.enter_title') }}" id="name"
+                                                class="form-control" name="name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{ __('label.parent_cate') }}</label>
+                                        <div class="col-md-3">
+                                            <select name="cate_id" class="selecter_1">
+                                                <option value="">{{ __('label.choose_parent') }}</option>}
+                                                @foreach ($data_cate as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -45,39 +60,30 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{ __('label.status') }}</label>
                                         <div class="col-md-3">
-                                            <select required name="status" class="selecter_1">
-                                                <option value="#">{{ __('label.choose_status') }}</option>
-                                                @if ($banner['status'] == 1)
-                                                    <option value="1" selected>{{ __('label.status_open') }}</option>
-                                                    <option value="0">{{ __('label.status_close') }}</option>
-                                                @else
-                                                    <option value="1">{{ __('label.status_open') }}</option>
-                                                    <option value="0" selected>{{ __('label.status_close') }}</option>
-                                                @endif
+                                            <select name="status" class="selecter_1">
+                                                <option value="">{{ __('label.choose_status') }}</option>
+                                                <option value="1">{{ __('label.status_open') }}</option>
+                                                <option value="0">{{ __('label.status_close') }}</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class=" col-md-12">
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{ __('label.location') }}</label>
-                                        <div class="col-md-3">
-                                            <select required name="location" class="selecter_1">
-                                                <option value="#">{{ __('label.choose_location') }}</option>
-                                                @if ($banner['location'] == 0)
-                                                    <option value="0" selected>{{ __('label.top') }}</option>
-                                                    <option value="1">{{ __('label.right') }}</option>
-                                                    <option value="2">{{ __('label.left') }}</option>
-                                                @elseif ($banner['location'])
-                                                    <option value="0">{{ __('label.top') }}</option>
-                                                    <option value="1" selected>{{ __('label.right') }}</option>
-                                                    <option value="2">{{ __('label.left') }}</option>
-                                                @else
-                                                    <option value="0">{{ __('label.top') }}</option>
-                                                    <option value="1">{{ __('label.right') }}</option>
-                                                    <option value="2" selected>{{ __('label.left') }}</option>
-                                                @endif
-                                            </select>
+                                        <label class="col-md-1 control-label">{{ __('label.desciption') }}</label>
+                                        <div class="col-md-6">
+                                            <textarea class="form-control"
+                                                placeholder="{{ __('label.enter_description') }}" rows="5" cols="30"
+                                                id="description" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{ __('label.content') }}</label>
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" rows="10" cols="30" id="editor1"
+                                                name="content" placeholder="{{ __('label.enter_content') }}"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -86,14 +92,9 @@
                                         <label class="col-md-1 control-label">{{ __('label.image') }}</label>
                                         <div class="col-md-4">
                                             <div class="thumbnail">
-                                                @if (!empty($link_image['link_url']))
-                                                    <img class="img-rounded" id="preview"
-                                                    src="{{ asset($link_image['link_url']) }}" class="image">
-                                                @else
-                                                    <img class="img-rounded" id="preview"
+                                                <img class="img-rounded" id="preview"
                                                     src="{{ asset(config('app.image_url') . 'no-image.png') }}"
                                                     class="image">
-                                                @endif
                                                 <div class="caption text-center">
                                                     <div class="form-group">
                                                         <input type="file" id="image" name="image"
@@ -118,5 +119,8 @@
         </form>
         <!-- panel body -->
     </div>
-</div><!-- content -->
+</div>
 @endsection
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('assets/js/index.js') }}"></script>
+@endpush

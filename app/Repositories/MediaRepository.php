@@ -25,7 +25,7 @@ class MediaRepository extends EloquentRepository
     public function storeFileUpload($request)
     {
         $fileName = uniqid() . '.' . $request->image->extension();
-        $path = $request->image->storeAs('images/banner', $fileName);
+        $path = $request->image->storeAs('images', $fileName);
         $img = [
             'name' => $fileName,
             'slug' => str_slug($fileName),
@@ -40,7 +40,7 @@ class MediaRepository extends EloquentRepository
     {
         $tmp = $request->all();
         $fileName = uniqid() . '.' . $tmp['image']->extension();
-        $path = $tmp['image']->storeAs('images/banner', $fileName);
+        $path = $tmp['image']->storeAs('images', $fileName);
         $img = [
             'name' => $fileName,
             'slug' => str_slug($fileName),
