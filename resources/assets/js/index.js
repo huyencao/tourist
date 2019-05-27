@@ -1,3 +1,5 @@
+import { Script } from "vm";
+
 function encodeImageFileAsURL(element, deploySelector) {
     var file = element.files[0];
     if (file == undefined) {
