@@ -18,6 +18,7 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('catenews', 'CategoryNewsController');
     Route::resource('media', 'MediaController');
     Route::resource('news', 'NewsController');
+    Route::resource('tour', 'TourController');
 });
 
 Route::namespace('Frontend')->prefix('tourist')->group(function(){

@@ -23,26 +23,26 @@ class Tour extends Model
 
     public function media()
     {
-        return $this->belongsTo('App\Models\Media');
+        return $this->belongsTo(Media::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany('App\Models\Category');
+        return $this->belongsTo(Category::class, 'cate_id', 'id');
     }
 
     public function orderTours()
     {
-        return $this->hasMany('App\Models\OrderTour');
+        return $this->hasMany(OrderTour::class);
     }
 
-    public function typeTours()
+    public function typeTour()
     {
-        return $this->hasMany('App\Models\TypeTour');
+        return $this->hasOne(TypeTour::class);
     }
 
     public function reviews()
     {
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany(Review::class);
     }
 }

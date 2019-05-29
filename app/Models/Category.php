@@ -23,7 +23,7 @@ class Category extends Model
 
     public function tours()
     {
-        return $this->belongsToMany('App\Models\Tour');
+        return $this->hasMany('App\Models\Tour');
     }
 
     public function cities()
