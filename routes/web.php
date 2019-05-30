@@ -22,6 +22,7 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('user', 'UserController');
     Route::resource('menu', 'MenuController');
     Route::get('destroy/delete/{id}', 'DestroyController@delete')->name('destroy.delete');
+    Route::resource('review', 'ReviewController');
 });
 
 Route::namespace('Frontend')->prefix('tourist')->group(function(){

@@ -68,6 +68,8 @@ return [
     'enter_child' => 'Nhập giá trẻ em',
     'enter_adult' => 'Nhập giá người lớn',
     'enter_tourcode' => 'Nhập mã tour',
+    'review' => 'Review',
+    'order_tour' => 'Quản lý đặt tour',
     'user' => 'Quản lý tài khoản',
     'user_title' => 'Quản lý tài khoản',
     'add_user' => 'Thêm tài khoản',

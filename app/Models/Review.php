@@ -19,11 +19,11 @@ class Review extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function tour()
     {
-        return $this->belongsTo('App\Models\Tour');
+        return $this->belongsTo(Tour::class, 'tour_id', 'id');
     }
 }

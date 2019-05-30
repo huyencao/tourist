@@ -69,6 +69,8 @@ return [
     'enter_child' => 'Enter child price',
     'enter_adult' => 'Enter adult price',
     'enter_tourcode' => 'Enter tour code',
+    'review' => 'Review',
+    'order_tour' => 'OrderTour',
     'user' => 'User manager',
     'user_title' => 'User manager',
     'add_user' => 'Add account',
