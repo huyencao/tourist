@@ -126,3 +126,6 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('assets/js/index.js') }}"></script>
+@endpush
