@@ -20,6 +20,8 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('news', 'NewsController');
     Route::resource('tour', 'TourController');
     Route::resource('user', 'UserController');
+    Route::resource('menu', 'MenuController');
+    Route::get('destroy/delete/{id}', 'DestroyController@delete')->name('destroy.delete');
 });
 
 Route::namespace('Frontend')->prefix('tourist')->group(function(){
