@@ -5,7 +5,7 @@
         <li class="list-group-item"><a href="{{ route('dashboard') }}"><i class="glyphicon glyphicon-home"></i>{{ __('Trang chủ') }}
             </a></li>
         </li>
-        <li class="list-group-item"><a href="#"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i>{{ __('Menu') }}</a>
+        <li class="list-group-item"><a href="{{ route('menu.index') }}"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i>{{ __('Menu') }}</a>
         </li>
         <li class="list-group-item"><a href="{{ route('banner.index') }}"><i class="fa fa-sliders" aria-hidden="true"></i>{{ __('Banner') }}</a></li>
         <li class="list-group-item"><a href="{{ route('catetour.index') }}"><i class="fa fa-outdent" aria-hidden="true"></i>{{ __('Category Tour') }}</li>
