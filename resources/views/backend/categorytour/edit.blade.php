@@ -50,7 +50,7 @@
                                         <div class="col-md-3">
 
                                             <select required name="parent_id" class="selecter_1">
-                                                <option value="#">{{ __('label.cate_tour.create.choose_parent') }}
+                                                <option value="0">{{ __('label.cate_tour.create.choose_parent') }}
                                                 </option>
                                                 @foreach ($parent_cate as $category)
                                                 <option value="{{ $category->id }}" @if($categories->parent_id ==
@@ -66,7 +66,7 @@
                                         </label>
                                         <div class="col-md-3">
                                             <select required name="city_id" class="selecter_1" name="cate">
-                                                <option value="#">{{ __('label.cate_tour.create.choose_cities') }}
+                                                <option value="0">{{ __('label.cate_tour.create.choose_cities') }}
                                                 </option>
                                                 @foreach ($cities as $city)
                                                 <option value="{{ $city->id}}" @if($categories->city_id == $city->id)

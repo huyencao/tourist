@@ -15,6 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', 'App\Http\ViewComposers\BannerComposer');
+        view()->composer('*', 'App\Http\ViewComposers\MenuComposer');
     }
 
     /**
