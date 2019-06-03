@@ -19,6 +19,9 @@ class Tour extends Model
         'schedule',
         'starting_point',
         'destination',
+        'total',
+        'total_sale',
+        'vehicle',
     ];
 
     public function media()

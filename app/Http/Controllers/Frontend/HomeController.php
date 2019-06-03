@@ -4,9 +4,19 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\TourRepository;
+use App\Repositories\CategoryRepository;
 
 class HomeController extends Controller
 {
+    protected $tour;
+    protected $cate_tour;
+
+    public function __construct(TourRepository $tour, CategoryRepository $categories)
+    {
+        $this->tour = $tour;
+        $this->cate_tour = $categories;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home.main');
+        $data_sale = $this->tour->listTourSale();
+
+        return view('frontend.home.main', compact('data_sale'));
     }
     /**
      * Show the form for creating a new resource.

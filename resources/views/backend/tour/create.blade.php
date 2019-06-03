@@ -100,8 +100,16 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{ __('label.schedule') }}</label>
                                         <div class="col-md-6">
-                                            <textarea id="schedule" rows="10" cols="50" placeholder="{{ __('label.enter_shecdule') }}" class="form-control"
-                                                name="schedule"></textarea>
+                                            <textarea id="editor1" rows="10" cols="80" class="form-control" name="schedule"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{ __('label.vehicle') }}</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="vehicle" placeholder="{{ __('label.enter_vehicle') }}"
+                                                class="form-control" name="vehicle">
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +117,7 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{ __('label.sale') }}</label>
                                         <div class="col-md-6">
-                                            <input type="int" id="sale" placeholder="{{ __('label.enter_sale') }}"
+                                            <input type="text" id="sale" placeholder="{{ __('label.enter_sale') }}"
                                                 class="form-control" name="sale">
                                         </div>
                                     </div>
@@ -147,6 +155,14 @@
                                         <div class="col-md-6">
                                             <input type="text" name="tour_code" id="tour_code" class="form-control"
                                                 placeholder="{{ __('label.enter_tourcode') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{ __('Time') }}</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="time" id="time" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +212,6 @@
                 </div>
             </div>
         </form>
-        <!-- panel body -->
     </div>
 </div>
 @endsection

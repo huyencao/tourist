@@ -16,6 +16,7 @@ class TypeTour extends Model
         'tour_code',
         'start_day',
         'end_day',
+        'time',
     ];
 
     public function tour()

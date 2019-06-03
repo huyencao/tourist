@@ -35,7 +35,7 @@ class TourController extends Controller
      */
     public function index()
     {
-        $list_tours = $this->tour->listTour()->paginate(config('app.tour'));
+        $list_tours = $this->tour->listTour();
 
         return view('backend.tour.index', compact('list_tours'));
     }
@@ -63,6 +63,14 @@ class TourController extends Controller
         if ($request->hasFile('image')) {
             $image = $this->image->storeFileUpload($request);
         }
+
+        $total = $request->baby_price + $request->child_price + $request->adult_price;
+        if ($request->sale != 0) {
+            $total_sale = $total - (($total * $request->sale) / 100);
+        } else {
+            $total_sale = 0;
+        }
+
         $data_tour = [
             'name' => $request->name,
             'slug' => str_slug($request->name),
@@ -73,7 +81,10 @@ class TourController extends Controller
             'sale' => $request->sale,
             'schedule' => $request->schedule,
             'starting_point' => $request->starting_point,
-            'destination' => $request->destination
+            'destination' => $request->destination,
+            'total' => $total,
+            'total_sale' => $total_sale,
+            'vehicle' => $request->vehicle,
         ];
         $tours = $this->tour->create($data_tour);
         $typetours = [
@@ -83,7 +94,8 @@ class TourController extends Controller
             'adult_price' => $request->adult_price,
             'tour_code' => $request->tour_code,
             'start_day' => $request->start_day,
-            'end_day' => $request->end_day
+            'end_day' => $request->end_day,
+            'time' => $request->time,
         ];
         $this->typetour->create($typetours);
 
@@ -124,6 +136,12 @@ class TourController extends Controller
      */
     public function update(TourRequest $request, $id)
     {
+        $total = $request->baby_price + $request->child_price + $request->adult_price;
+        if ($request->sale != 0) {
+            $total_sale = $total - (($total * $request->sale) / 100);
+        } else {
+            $total_sale = 0;
+        }
         $data_tour = [
             'name' => $request->name,
             'slug' => str_slug($request->name),
@@ -134,7 +152,10 @@ class TourController extends Controller
             'sale' => $request->sale,
             'schedule' => $request->schedule,
             'starting_point' => $request->starting_point,
-            'destination' => $request->destination
+            'destination' => $request->destination,
+            'total' => $total,
+            'total_sale' => $total_sale,
+            'vehicle' => $request->vehicle,
         ];
         $update_tour = $this->tour->update($id, $data_tour);
         $typetours = [
@@ -143,7 +164,8 @@ class TourController extends Controller
             'adult_price' => $request->adult_price,
             'tour_code' => $request->tour_code,
             'start_day' => $request->start_day,
-            'end_day' => $request->end_day
+            'end_day' => $request->end_day,
+            'time' => $request->time,
         ];
 
         $typetour = TypeTour::where('tour_id', $update_tour->id)->update($typetours);

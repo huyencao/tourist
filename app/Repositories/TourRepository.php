@@ -16,9 +16,9 @@ class TourRepository extends EloquentRepository
 
     public function listTour()
     {
-        $news = Tour::with('media', 'category')->orderBy('name', 'ASC');
+        $tour = Tour::with('media', 'category')->orderBy('name', 'ASC')->paginate(config('app.tour'));
 
-        return $news;
+        return $tour;
     }
 
     public function findTourWithType($id)
@@ -29,5 +29,26 @@ class TourRepository extends EloquentRepository
         } else {
             return $data;
         }
+    }
+
+    public function listTourSale()
+    {
+        $data =  Tour::with('media', 'category')->where('sale', '!=', 0)->paginate(config('app.home_view'));
+
+        return $data;
+    }
+
+    public function tourDetail($slug)
+    {
+        $data = Tour::with('media', 'category', 'typeTour')->where('slug', $slug)->get();
+
+        return $data;
+    }
+
+    public function listTourCate($id)
+    {
+        $data = Tour::with('media', 'category', 'typeTour')->where('cate_id', $id)->get();
+
+        return $data;
     }
 }
