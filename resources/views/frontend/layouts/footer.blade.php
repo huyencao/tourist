@@ -33,11 +33,11 @@
                     <div class="box_footer">
                         <h3>{{ __('label.frontend.active') }}</h3>
                         <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ __('label.frontend.active1') }}</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ __('label.frontend.active2') }}</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ __('label.frontend.active3') }}</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ __('label.frontend.active4') }}</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ __('label.frontend.active5') }}</a></li>
+                            <li></i>{{ __('label.frontend.active1') }}</li>
+                            <li></i>{{ __('label.frontend.active2') }}</li>
+                            <li></i>{{ __('label.frontend.active3') }}</li>
+                            <li></i>{{ __('label.frontend.active4') }}</li>
+                            <li></i>{{ __('label.frontend.active5') }}</li>
                         </ul>
                     </div>
                 </div>
@@ -45,11 +45,11 @@
                     <div class="box_footer">
                         <h3>{{ __('label.frontend.information') }}</h3>
                         <ul>
-                            <li><a href="#"> <i class="fa fa-angle-right"></i>{{ __('label.frontend.information1') }}</a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right"></i>{{ __('label.frontend.information2') }}</a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right"></i>{{ __('label.frontend.information3') }}</a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right"></i>{{ __('label.frontend.information4') }}</a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right"></i>{{ __('label.frontend.information5') }}</a></li>
+                            <li>{{ __('label.frontend.information1') }}</li>
+                            <li>{{ __('label.frontend.information2') }}</li>
+                            <li>{{ __('label.frontend.information3') }}</li>
+                            <li>{{ __('label.frontend.information4') }}</li>
+                            <li>{{ __('label.frontend.information5') }}</li>
                         </ul>
                     </div>
                 </div>
@@ -73,24 +73,14 @@
                         <p>{{ __('label.frontend.tax_code') }}</p>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="bottom_lef">
-                        <h4>{{ __('label.frontend.transaction_hn') }}</h4>
+                <div class="col-xs-12">
+                    <div class="footer_center">
+                        <h2>{{ __('label.frontend.transaction_hn') }}</h2>
                         <p>{{ __('label.frontend.address2') }}</p>
                         <p>{{ __('label.frontend.phone') }}</p>
                         <p>{{ __('label.frontend.hotline') }}</p>
                         <p>{{ __('label.frontend.email') }}</p>
                         <p>{{ __('label.frontend.website') }}</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="bottom_righ">
-                        <h4>{{ __('label.frontend.transaction_hcm') }}</h4>
-                        <p>{{ __('label.frontend.address3') }}</p>
-                        <p>{{ __('label.frontend.phone2') }}</p>
-                        <p>{{ __('label.frontend.hotline2') }}</p>
-                        <p>{{ __('label.frontend.email2') }}</p>
-                        <p>{{ __('label.frontend.website2') }}</p>
                     </div>
                 </div>
             </div>

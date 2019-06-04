@@ -26,4 +26,11 @@ class CategoryNewsRepository extends EloquentRepository
     {
         return CategoryNews::orderBy('name', 'DESC')->get();
     }
+
+    public function cateNewsDetail($slug)
+    {
+        $data = CategoryNews::where('slug', $slug)->first();
+
+        return $data;
+    }
 }

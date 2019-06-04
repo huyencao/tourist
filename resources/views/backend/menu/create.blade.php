@@ -31,7 +31,7 @@
             <div class="col-md-6">
                 <select name="parent_id" class="selecter_1">
                     <option value="0">{{ __('label.choose_menu') }}</option>
-                    {{ showCategories($menus) }}
+                    {{ showCategories($list_menus) }}
                 </select>
             </div>
         </div>
