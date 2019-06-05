@@ -110,10 +110,16 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{ __('label.schedule') }}</label>
                                         <div class="col-md-6">
-                                            <textarea id="schedule" rows="10" cols="50"
-                                                placeholder="{{ __('label.enter_shecdule') }}" class="form-control"
-                                                name="schedule"
-                                                value="{{ $tour->schedule }}">{{ $tour->schedule }}</textarea>
+                                            <textarea rows="10" cols="80" class="form-control"
+                                                name="schedule" id="editor1" value="{{ $tour->schedule }}">{{ $tour->schedule }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{ __('label.vehicle') }}</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="vehicle" class="form-control" name="vehicle" value="{{ $tour->vehicle }}">
                                         </div>
                                     </div>
                                 </div>
@@ -163,6 +169,14 @@
                                             <input type="text" name="tour_code" id="tour_code" class="form-control"
                                                 placeholder="{{ __('label.enter_tourcode') }}"
                                                 value="{{ $tour->typeTour->tour_code }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{ __('Time') }}</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="time" id="time" class="form-control" value="{{ $tour->typeTour->time }}">
                                         </div>
                                     </div>
                                 </div>

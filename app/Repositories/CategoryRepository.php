@@ -18,4 +18,18 @@ class CategoryRepository extends EloquentRepository
 
         return $cate;
     }
+
+    public function listCateCity($slug)
+    {
+        $cate = Category::where('city_id', '!=', 0)->where('slug', '!=', $slug)->orderBy('name', 'ASC')->get();
+
+        return $cate;
+    }
+
+    public function cateDetail($slug)
+    {
+        $data = Category::where('slug', $slug)->first();
+
+        return $data;
+    }
 }

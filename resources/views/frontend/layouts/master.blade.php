@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('bower_components/lib_bower/Frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/lib_bower/Frontend/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/lib_bower/Frontend/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/lib_bower/Frontend/css/table.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/lib_bower/Frontend/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/lib_bower/Frontend/css/owl.carousel.min.css') }}">
 </head>
