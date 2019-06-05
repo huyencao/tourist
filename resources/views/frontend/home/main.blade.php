@@ -17,7 +17,7 @@
                     <div class="box_item">
                         <img src="{{ asset($sale->media->link_url) }}">
                         <div class="item_content">
-                            <h3><a href="{{ route('tour.detail', $value->slug) }}">{{ str_limit($sale->name, 50) }}</a></h3>
+                            <h3><a href="{{ route('tour.detail', $sale->slug) }}">{{ str_limit($sale->name, 50) }}</a></h3>
                             <div class="box_content">
                                 <p><span class="day"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ $sale->typeTour->time }}</span>
                                     <span class="price_old">{{ number_format($sale->total, 0, '.', '.') }}</span></p>

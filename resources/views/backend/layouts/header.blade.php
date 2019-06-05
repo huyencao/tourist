@@ -15,11 +15,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="dropdown">
             <a href="#" class="active">{{ ('Xin chào Admin') }}</a>
-            <button class="dropbtn">Setting</button>
+            <button class="dropbtn">{{ __('Setting') }}</button>
             <ul class="dropdown-content">
-                <li><a href="#">{{ __('label.add') }}</a></li>
-                <li><a href="#">{{ __('List user') }}</a></li>
-                <li><a href="#">{{ __('Signout') }}</a></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit">{{ __('Logout') }}</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div><!-- /.container-fluid -->
