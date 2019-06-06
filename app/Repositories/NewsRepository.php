@@ -30,4 +30,26 @@ class NewsRepository extends EloquentRepository
             return $data;
         }
     }
+
+    public function listNewsCate($id)
+    {
+        $data = News::with('media', 'categoryNews')->where('cate_id', $id)->paginate(config('app.news'));
+
+        return $data;
+    }
+
+    public function newsDetail($slug)
+    {
+        $data = News::with('media', 'categoryNews')->where('slug', $slug)->get();
+
+        return $data;
+    }
+
+    public function listLatestNews($slug)
+    {
+        $news = News::where('slug', '!=', $slug)->orderBy('id', 'DESC')->limit()->get(config('app.limit_news'));
+
+        return $news;
+    }
+
 }

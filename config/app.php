@@ -8,6 +8,8 @@ return [
     'img_frontend' => 'bower_components/lib_bower/Frontend/images/',
     'tour' => 10,
     'home_view' => 4,
+    'news' => 8,
+    'limit_news' => 4,
     /*
     /*
     |--------------------------------------------------------------------------

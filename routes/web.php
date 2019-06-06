@@ -30,4 +30,6 @@ Route::namespace('Frontend')->prefix('tourist')->group(function(){
     Route::get('about', 'AboutController@index')->name('about');
     Route::get('tour-du-lich/{slug}', 'TourViewController@index')->name('tour');
     Route::get('chi-tiet-tour/{slug}.html', 'TourViewController@detailTour')->name('tour.detail');
+    Route::get('tin-tuc/{slug}', 'NewsViewController@index')->name('news');
+    Route::get('chi-tiet-tin-tuc/{slug}.html', 'NewsViewController@detailNews')->name('news.detail');
 });

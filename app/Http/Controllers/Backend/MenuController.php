@@ -43,9 +43,9 @@ class MenuController extends Controller
     {
         $cate_tour = $this->cate_tour->listCate();
         $cate_news = $this->cate_news->newsSelect();
-        $menus = $this->menu->listMenu();
+        $list_menus = $this->menu->listMenu();
 
-        return view('backend.menu.create', compact('cate_tour', 'cate_news', 'menus'));
+        return view('backend.menu.create', compact('cate_tour', 'cate_news', 'list_menus'));
     }
 
     /**
