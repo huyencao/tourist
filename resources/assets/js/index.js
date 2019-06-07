@@ -1,5 +1,3 @@
-import { Script } from "vm";
-
 function encodeImageFileAsURL(element, deploySelector) {
     var file = element.files[0];
     if (file == undefined) {
@@ -13,3 +11,13 @@ function encodeImageFileAsURL(element, deploySelector) {
     }
     reader.readAsDataURL(file);
 }
+
+//load file2
+var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        var imgInp = document.getElementById('imgInp');
+        imgInp.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+};

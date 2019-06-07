@@ -9,6 +9,7 @@ use App\Models\Media;
 use App\Repositories\UserRepository;
 use App\Repositories\MediaRepository;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -55,6 +56,7 @@ class UserController extends Controller
         }
         $request->merge([
             'avatar_id' => $image->id,
+            'password' => Hash::make($request->password),
         ]);
         $this->user->create($request->all());
 
@@ -94,6 +96,9 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
+        $request->merge([
+            'password' => Hash::make($request->password),
+        ]);
         $user = $this->user->update($id, $request->all());
         if ($request->hasFile('image')) {
             $image = $this->image->updateFileUpload($user->avatar_id, $request);

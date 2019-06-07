@@ -3,10 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends \Eloquent implements Authenticatable, CanResetPasswordContract
 {
-
+    use AuthenticableTrait, CanResetPassword;
+    use Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +27,6 @@ class User extends Model
         'fullname',
         'role',
         'avatar_id',
-        'password_reset',
     ];
 
     public function media()
