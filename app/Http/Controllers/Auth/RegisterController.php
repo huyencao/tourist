@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Repositories\MediaRepository;
+use Illuminate\Support\Facades\Input;
 
 class RegisterController extends Controller
 {
+    protected $image;
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -28,16 +32,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MediaRepository $image)
     {
         $this->middleware('guest');
+        $this->image = $image;
     }
 
     /**
@@ -49,9 +54,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'fullname' => ['required', 'string', 'max:255'],
+            'image' => ['required', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
     }
 
@@ -63,10 +70,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        if (Input::file('image')) {
+            $data = (object) $data;
+            $image = $this->image->storeFileUpload($data);
+        }
+
+        $user = User::create([
+            'username' => $data->username,
+            'email' => $data->email,
+            'fullname' => $data->fullname,
+            'password' => Hash::make($data->password),
+            'password_confirmation' => Hash::make($data->password_confirmation),
+            'avatar_id' => $image->id,
         ]);
+
+        return $user;
     }
 }
