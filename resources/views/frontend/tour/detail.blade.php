@@ -44,7 +44,7 @@
                                         <td><span class="tb_prie">{{ number_format($item->typeTour->baby_price, 0, '.', '.') }}</span></td>
                                         <td><span class="tb_prie">{{ number_format($item->typeTour->child_price, 0, '.', '.') }}</span></td>
                                         <td><span class="tb_prie">{{ number_format($item->typeTour->adult_price, 0, '.', '.') }}</span></td>
-                                        <td><span class="tb_book">{{ __('Book tour') }}</span></td>
+                                        <td><a href="{{ route('book', $item->slug) }}"><span class="tb_book">{{ __('Book tour') }}</span></a></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -10,12 +10,17 @@ class OrderTour extends Model
 
     protected $fillable = [
         'tour_id',
-        'user_id',
         'start_day',
         'number_baby',
         'number_child',
         'number_adult',
         'total_price',
+        'payment_method',
+        'fullname',
+        'phone',
+        'email',
+        'address',
+        'content',
     ];
 
     public function user()

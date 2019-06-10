@@ -32,6 +32,8 @@ Route::namespace('Frontend')->prefix('tourist')->group(function(){
     Route::get('chi-tiet-tour/{slug}.html', 'TourViewController@detailTour')->name('tour.detail');
     Route::get('tin-tuc/{slug}', 'NewsViewController@index')->name('news');
     Route::get('chi-tiet-tin-tuc/{slug}.html', 'NewsViewController@detailNews')->name('news.detail');
+    Route::get('book-tour/{slug}', 'OrderTourController@index')->name('book');
+    Route::post('book-tour/{slug}', 'OrderTourController@store')->name('book.store');
 });
 
 Auth::routes();
