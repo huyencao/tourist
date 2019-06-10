@@ -17,7 +17,7 @@
                 <div class="list_menu">
                     <ul>
                         @foreach ($list_cate as $cate)
-                            <li><a href="{{ $cate->slug }}">{{ $cate->name }}</a></li>
+                        <li><a href="{{ $cate->slug }}">{{ $cate->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -53,18 +53,22 @@
                                             </div>
                                             <div class="box_price">
                                                 <p>{{ __('label.frontend.price_tour') }}</p>
-                                                <p class="price">{{ number_format($value->sale ? $value->total_sale : $value->total, 0, '.', '.') }}{{ __('label.vnd') }}</p>
+                                                <p class="price">
+                                                    {{ number_format($value->sale ? $value->total_sale : $value->total, 0, '.', '.') }}{{ __('label.vnd') }}
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 ">
                                             <div class="box_book">
                                                 <div class="box_1">
                                                     <span class="book_date"><i class="fa fa-calendar">
-                                                    </i>{{ date('d/m/Y', strtotime($value->typeTour->start_day)) }}</span>
-                                                    <span class="book_price"><i class="fa fa-money" aria-hidden="true"></i>{{ number_format($value->sale ? $value->total_sale : $value->total, 0, '.', '.') }}{{ __('label.vnd') }}</span>
+                                                        </i>{{ date('d/m/Y', strtotime($value->typeTour->start_day)) }}</span>
+                                                    <span class="book_price"><i class="fa fa-money"
+                                                            aria-hidden="true"></i>{{ number_format($value->sale ? $value->total_sale : $value->total, 0, '.', '.') }}{{ __('label.vnd') }}</span>
                                                 </div>
                                                 <div class="box_2">
-                                                    <span class="book_detail"><a href="{{ route('tour.detail', $value->slug) }}">{{ __('label.frontend.detail') }}</span></a><span
+                                                    <span class="book_detail"><a
+                                                            href="{{ route('tour.detail', $value->slug) }}">{{ __('label.frontend.detail') }}</span></a><span
                                                         class="book_now">{{ __('Book tour') }}</span>
                                                 </div>
                                                 <p class="load_date">{{ __('label.frontend.see_more') }}</p>
@@ -81,6 +85,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

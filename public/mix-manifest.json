@@ -2,5 +2,6 @@
     "/css/app.css": "/css/app.css",
     "/assets/js/index.js": "/assets/js/index.js",
     "/assets/js/menu.js": "/assets/js/menu.js",
-    "/assets/js/frontend.js": "/assets/js/frontend.js"
+    "/assets/js/frontend.js": "/assets/js/frontend.js",
+    "/assets/js/tour.js": "/assets/js/tour.js"
 }

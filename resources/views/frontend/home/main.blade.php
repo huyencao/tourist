@@ -5,6 +5,14 @@
 @section('content')
 <section>
     <div class="container">
+    <div class="search-container">
+        <form class="form-inline typeahead">
+            <div class="form-group">
+                <input type="name" class="form-control search-input" id="name" autocomplete="off"
+                    placeholder="{{ __('Search tourist..') }}">
+            </div>
+        </form>
+    </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="head_title">
@@ -33,8 +41,8 @@
                     <a href="#">{{ __('label.frontend.see_more') }}</a>
                 </div>
             </div>
-            {{ $data_sale->links() }}
         </div>
+        {{ $data_sale->links() }}
     </div>
 </section>
 <section>

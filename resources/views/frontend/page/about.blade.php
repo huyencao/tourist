@@ -14,11 +14,6 @@
                 <p><i class="fa fa-phone"></i>{{ __('label.frontend.phone') }}</p>
                 <p><i class="fa fa-phone"></i>{{ __('label.frontend.hotline') }}</p>
                 <p><i class="fa fa-envelope-o"></i>{{ __('label.frontend.email') }}</p>
-                <h4>{{ __('label.frontend.transaction_hcm') }}</h4>
-                <p><i class="fa fa-map-marker"></i> {{ __('label.frontend.address3') }}</p>
-                <p><i class="fa fa-phone"></i>{{ __('label.frontend.phone2') }}</p>
-                <p><i class="fa fa-phone"></i>{{ __('label.frontend.hotline2') }}</p>
-                <p><i class="fa fa-envelope-o"></i>{{ __('label.frontend.email2') }}</p>
             </div>
         </div>
     </div>
