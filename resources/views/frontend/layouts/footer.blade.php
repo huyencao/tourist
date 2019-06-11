@@ -8,7 +8,8 @@
                 <div class="col-xs-12">
                     <div class="pay_sub">
                         <ul>
-                            <li><img src="{{ asset(config('app.img_pay') . '1.jpg') }}" alt="{{ __('vietcombank') }}"></li>
+                            <li><img src="{{ asset(config('app.img_pay') . '1.jpg') }}" alt="{{ __('vietcombank') }}">
+                            </li>
                             <li><img src="{{ asset(config('app.img_pay') . '2.jpg') }}"></li>
                             <li><img src="{{ asset(config('app.img_pay') . '3.jpg') }}"></li>
                             <li><img src="{{ asset(config('app.img_pay') . '4.jpg') }}"></li>

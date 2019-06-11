@@ -61,10 +61,4 @@
             </a>
         </div>
     </div>
-    <div class="search-container">
-        <form action="#">
-            <input type="text" placeholder="{{ __('Search..') }}" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
 </header>
