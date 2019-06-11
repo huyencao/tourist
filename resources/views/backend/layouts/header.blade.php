@@ -18,13 +18,15 @@
             <button class="dropbtn">{{ __('Setting') }}</button>
             <ul class="dropdown-content">
                 <li>
-                    <form method="POST" action="{{ route('logout') }}">
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit">{{ __('Logout') }}</button>
                     </form>
                 </li>
             </ul>
         </div>
     </div><!-- /.container-fluid -->
 </nav>
-<!--header-->

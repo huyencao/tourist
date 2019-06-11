@@ -11,7 +11,7 @@
 |
 */
 
-Route::namespace('Backend')->prefix('admin')->group(function(){
+Route::namespace('Backend')->prefix('admin')->middleware(['auth', 'check.login'])->group(function(){
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('banner', 'BannerController');
     Route::resource('catetour', 'CategoryTourController');
@@ -25,7 +25,7 @@ Route::namespace('Backend')->prefix('admin')->group(function(){
     Route::resource('review', 'ReviewController');
 });
 
-Route::namespace('Frontend')->prefix('tourist')->group(function(){
+Route::namespace('Frontend')->middleware(['auth'])->group(function(){
     Route::get('/', 'HomeController@index')->name('homeTourist');
     Route::get('about', 'AboutController@index')->name('about');
     Route::get('tour-du-lich/{slug}', 'TourViewController@index')->name('tour');
@@ -38,4 +38,3 @@ Route::namespace('Frontend')->prefix('tourist')->group(function(){
 });
 
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');

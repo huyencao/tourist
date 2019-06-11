@@ -1,5 +1,7 @@
 @extends('backend.layouts.master')
 
+@section('title', __('label.banner.list'))
+
 @section('content')
 <div class="col-xs-12 col-sm-9 content">
     <div class="panel panel-default">

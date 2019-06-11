@@ -81,14 +81,10 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        try {
-            $banner = $this->banner->findBanner($id);
-            $link_image = $this->banner_image->findImage($banner->media_id);
+        $banner = $this->banner->findBanner($id);
+        $link_image = $this->banner_image->findImage($banner->media_id);
 
-            return view('backend.banner.edit', compact('banner', 'link_image'));
-        } catch (ModelNotFoundException $ex) {
-            return $ex->getMessage();
-        }
+        return view('backend.banner.edit', compact('banner', 'link_image'));
     }
 
     /**
