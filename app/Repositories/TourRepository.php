@@ -21,6 +21,16 @@ class TourRepository extends EloquentRepository
         return $tour;
     }
 
+    public function findTour($id)
+    {
+        $data = Tour::find($id);
+        if (empty($data)) {
+            return false;
+        } else {
+            return $data;
+        }
+    }
+
     public function findTourWithType($id)
     {
         $data = Tour::with('typeTour')->find($id);

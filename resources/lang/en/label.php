@@ -131,6 +131,7 @@ return [
         ],
     ],
     'banner' => [
+        'name' =>'Banner',
         'list' => 'List banner',
         'title' => 'Title banner',
     ],

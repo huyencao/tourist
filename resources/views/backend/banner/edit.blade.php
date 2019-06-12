@@ -1,5 +1,7 @@
 @extends('backend.layouts.master')
 
+@section('title', __('label.banner.name'))
+
 @section('content')
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -24,9 +26,9 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('banner.update', $banner->id) }}" enctype="multipart/form-data" method="POST">
-            {{ csrf_field() }}
-            {{ method_field('PUT') }}
+        <form action="{{ route('banner.update', $banner[0]['id']) }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            @method('PUT')
             <div class="panel-body">
                 <div class="content-row">
                     <div class="row">
@@ -37,7 +39,7 @@
                                         <label class="col-md-1 control-label">{{ __('label.name') }}</label>
                                         <div class="col-md-6">
                                             <input type="text" placeholder="{{ __('label.enter_title') }}" id="title"
-                                                class="form-control" name="name" value="{{ $banner['name'] }}">
+                                                class="form-control" name="name" value="{{ $banner[0]['name'] }}">
                                         </div>
                                     </div>
                                 </div>
@@ -47,12 +49,12 @@
                                         <div class="col-md-3">
                                             <select required name="status" class="selecter_1">
                                                 <option value="#">{{ __('label.choose_status') }}</option>
-                                                @if ($banner['status'] == 1)
-                                                    <option value="1" selected>{{ __('label.status_open') }}</option>
-                                                    <option value="0">{{ __('label.status_close') }}</option>
+                                                @if ($banner[0]['status'] == 1)
+                                                <option value="1" selected>{{ __('label.status_open') }}</option>
+                                                <option value="0">{{ __('label.status_close') }}</option>
                                                 @else
-                                                    <option value="1">{{ __('label.status_open') }}</option>
-                                                    <option value="0" selected>{{ __('label.status_close') }}</option>
+                                                <option value="1">{{ __('label.status_open') }}</option>
+                                                <option value="0" selected>{{ __('label.status_close') }}</option>
                                                 @endif
                                             </select>
                                         </div>
@@ -64,18 +66,18 @@
                                         <div class="col-md-3">
                                             <select required name="location" class="selecter_1">
                                                 <option value="#">{{ __('label.choose_location') }}</option>
-                                                @if ($banner['location'] == 0)
-                                                    <option value="0" selected>{{ __('label.top') }}</option>
-                                                    <option value="1">{{ __('label.right') }}</option>
-                                                    <option value="2">{{ __('label.left') }}</option>
-                                                @elseif ($banner['location'])
-                                                    <option value="0">{{ __('label.top') }}</option>
-                                                    <option value="1" selected>{{ __('label.right') }}</option>
-                                                    <option value="2">{{ __('label.left') }}</option>
+                                                @if ($banner[0]['location'] == 0)
+                                                <option value="0" selected>{{ __('label.top') }}</option>
+                                                <option value="1">{{ __('label.right') }}</option>
+                                                <option value="2">{{ __('label.left') }}</option>
+                                                @elseif ($banner[0]['location'] == 1)
+                                                <option value="0">{{ __('label.top') }}</option>
+                                                <option value="1" selected>{{ __('label.right') }}</option>
+                                                <option value="2">{{ __('label.left') }}</option>
                                                 @else
-                                                    <option value="0">{{ __('label.top') }}</option>
-                                                    <option value="1">{{ __('label.right') }}</option>
-                                                    <option value="2" selected>{{ __('label.left') }}</option>
+                                                <option value="0">{{ __('label.top') }}</option>
+                                                <option value="1">{{ __('label.right') }}</option>
+                                                <option value="2" selected>{{ __('label.left') }}</option>
                                                 @endif
                                             </select>
                                         </div>
@@ -87,10 +89,10 @@
                                         <div class="col-md-4">
                                             <div class="thumbnail">
                                                 @if (!empty($link_image['link_url']))
-                                                    <img class="img-rounded" id="preview"
+                                                <img class="img-rounded" id="preview"
                                                     src="{{ asset($link_image['link_url']) }}" class="image">
                                                 @else
-                                                    <img class="img-rounded" id="preview"
+                                                <img class="img-rounded" id="preview"
                                                     src="{{ asset(config('app.image_url') . 'no-image.png') }}"
                                                     class="image">
                                                 @endif
@@ -121,5 +123,5 @@
 </div><!-- content -->
 @endsection
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('assets/js/index.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/index.js') }}"></script>
 @endpush

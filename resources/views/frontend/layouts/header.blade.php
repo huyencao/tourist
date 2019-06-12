@@ -4,12 +4,32 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="left">
-                        <span class="sp_email"><i class="fa fa-envelope-o"
-                                aria-hidden="true"></i>{{ __('label.frontend.info') }}</span>
+                        <span class="sp_email"><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ __('label.frontend.info') }}</span>
                         <span class="sp_hotline"><i class="fa fa-phone"></i>{{ __('label.frontend.hotline') }}</span>
                     </div>
                     <div class="rigth">
-                        <p>{{ __('label.frontend.title') }}</p>
+                        <div class="area-info f-right user-info">
+                            <div class="obj pos-relative">
+                                <img src="{{ asset(config('app.img_frontend') . 'user.png') }}"
+                                    alt="{{ __('Tài khoản') }}" class="dropdown-toggle" data-toggle="dropdown"
+                                    aria-expanded="true">
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> {{ __('Login') }}</a>
+                                    </li>
+                                    <li><a href="{{ route('register') }}"><i class="fa fa-registered" aria-hidden="true"></i> {{ __('Register') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

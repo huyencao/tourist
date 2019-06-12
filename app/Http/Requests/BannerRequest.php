@@ -25,7 +25,7 @@ class BannerRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:255',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image.*' => 'image|mimes:jpg,jpeg,png|max:2048',
             'location' => 'required',
             'status' => 'required',
         ];
