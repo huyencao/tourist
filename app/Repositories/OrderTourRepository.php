@@ -13,4 +13,11 @@ class OrderTourRepository extends EloquentRepository
     {
         return \App\Models\OrderTour::class;
     }
+
+    public function listOrderTour()
+    {
+        $data = OrderTour::with('tour')->paginate(config('app.ordertour'));
+
+        return $data;
+    }
 }
