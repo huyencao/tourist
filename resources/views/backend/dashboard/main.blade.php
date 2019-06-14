@@ -1,5 +1,7 @@
 @extends('backend.layouts.master')
 
+@section('title', __('label.admin_page'))
+
 @section('content')
 <div class="col-xs-12 col-sm-9 content">
     <form action="index_submit" method="get">

@@ -11,7 +11,7 @@
 |
 */
 
-Route::namespace('Backend')->prefix('admin')->middleware(['auth', 'check.login'])->group(function(){
+Route::namespace('Backend')->prefix('admin')->middleware(['auth'])->group(function(){
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('banner', 'BannerController');
     Route::resource('catetour', 'CategoryTourController');
@@ -23,6 +23,7 @@ Route::namespace('Backend')->prefix('admin')->middleware(['auth', 'check.login']
     Route::resource('menu', 'MenuController');
     Route::get('destroy/delete/{id}', 'DestroyController@delete')->name('destroy.delete');
     Route::resource('review', 'ReviewController');
+    Route::resource('ordertour', 'OrderTourManageController');
 });
 
 Route::namespace('Frontend')->middleware(['auth'])->group(function(){

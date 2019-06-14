@@ -70,8 +70,12 @@ return [
     'enter_tourcode' => 'Nhập mã tour',
     'review' => 'Review',
     'order_tour' => 'Quản lý đặt tour',
+    'list_order' => 'Danh sách đặt tour',
+    'name_order' => 'Tên tour',
     'user' => 'Quản lý tài khoản',
     'user_title' => 'Quản lý tài khoản',
+    'list_manage' => 'DANH MỤC QUẢN LÝ',
+    'media' => 'Danh mục hình ảnh',
     'add_user' => 'Thêm tài khoản',
     'user' => [
         'username' => 'Tên đăng nhập',
@@ -104,6 +108,7 @@ return [
     'parent_required' => 'Danh mục cha không được để trống',
     'typemenu_required' => 'Loại danh mục không được để trống',
     'link_required' => 'Link không được để trống',
+    'admin_page' => 'Trang quản trị',
     'cate_tour' => [
         'list' => 'Danh sách danh mục tour',
         'serial' => 'STT',
