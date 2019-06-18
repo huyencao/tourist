@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class CheckRole
 {
@@ -15,6 +16,14 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->role == 1) {
+                return $next($request);
+            }
+
+            return redirect()->route('homeTourist');
+        } else {
+            return redirect()->route('login');
+        }
     }
 }

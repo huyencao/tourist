@@ -4,7 +4,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="left">
-                        <span class="sp_email"><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ __('label.frontend.info') }}</span>
+                        <span class="sp_email"><i class="fa fa-envelope-o"
+                                aria-hidden="true"></i>{{ __('label.frontend.info') }}</span>
                         <span class="sp_hotline"><i class="fa fa-phone"></i>{{ __('label.frontend.hotline') }}</span>
                     </div>
                     <div class="rigth">
@@ -13,11 +14,19 @@
                                 <img src="{{ asset(config('app.img_frontend') . 'user.png') }}"
                                     alt="{{ __('Tài khoản') }}" class="dropdown-toggle" data-toggle="dropdown"
                                     aria-expanded="true">
+                                @if (!Auth::check())
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> {{ __('Login') }}</a>
+                                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                                            {{ __('Login') }}</a>
                                     </li>
-                                    <li><a href="{{ route('register') }}"><i class="fa fa-registered" aria-hidden="true"></i> {{ __('Register') }}</a>
+                                    <li><a href="{{ route('register') }}"><i class="fa fa-registered"
+                                                aria-hidden="true"></i> {{ __('Register') }}</a>
                                     </li>
+                                </ul>
+                                @endif
+                                @if (Auth::check())
+                                <a href="#" class="active">{{ Auth::user()->fullname }}</a>
+                                <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -28,6 +37,7 @@
                                         </form>
                                     </li>
                                 </ul>
+                                @endif
                             </div>
                         </div>
                     </div>
