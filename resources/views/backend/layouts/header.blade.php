@@ -14,9 +14,10 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="dropdown">
-            <a href="#" class="active">{{ ('Xin chào Admin') }}</a>
+            <a href="#" class="active">{{ Auth::user()->username }}</a>
             <button class="dropbtn">{{ __('Setting') }}</button>
             <ul class="dropdown-content">
+                @if (Auth::check())
                 <li>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -26,6 +27,7 @@
                         @csrf
                     </form>
                 </li>
+                @endif
             </ul>
         </div>
     </div><!-- /.container-fluid -->

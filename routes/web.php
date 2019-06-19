@@ -11,7 +11,7 @@
 |
 */
 
-Route::namespace('Backend')->prefix('admin')->middleware(['auth'])->group(function(){
+Route::namespace('Backend')->prefix('admin')->middleware(['auth', 'check.role'])->group(function(){
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('banner', 'BannerController');
     Route::resource('catetour', 'CategoryTourController');
@@ -26,7 +26,7 @@ Route::namespace('Backend')->prefix('admin')->middleware(['auth'])->group(functi
     Route::resource('ordertour', 'OrderTourManageController');
 });
 
-Route::namespace('Frontend')->middleware(['auth'])->group(function(){
+Route::namespace('Frontend')->group(function(){
     Route::get('/', 'HomeController@index')->name('homeTourist');
     Route::get('about', 'AboutController@index')->name('about');
     Route::get('tour-du-lich/{slug}', 'TourViewController@index')->name('tour');
