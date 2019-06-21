@@ -138,14 +138,8 @@ $(document).ready(function() {
     });
 });
 
-function commentFunction() {
-    var x = document.getElementById("writeComment");
-    var a = document.getElementById("button");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        a.innerText = "Đóng";
-    } else {
-        x.style.display = "none";
-        a.innerText = "Viết nhận xét của bạn";
-    }
-}
+$(document).ready(function() {
+    $("#button").click(function() {
+        $("#writeComment").toggle();
+    });
+});

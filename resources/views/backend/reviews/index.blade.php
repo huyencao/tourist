@@ -25,7 +25,6 @@
                                         <th> {{ __('label.name') }} </th>
                                         <th> {{ __('label.user.email') }} </th>
                                         <th> {{ __('label.content') }}</th>
-                                        <th> {{ __('label.user.fullname') }} </th>
                                         <th> {{ __('label.tour') }} </th>
                                         <th> {{ __('label.manipulation') }} </th>
                                     </tr>
@@ -34,17 +33,17 @@
                                     @foreach ($data_review as $key => $review)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $review['name'] }}</td>
-                                        <td>{{ $review['email']}}</td>
-                                        <td>{{ str_limit($review['content'], 60) }}</td>
-                                        <td>{{ $review['user']['fullname'] }}</td>
-                                        <td>{{ $review['tour']['name'] }}</td>
+                                        <td>{{ $review->name }}</td>
+                                        <td>{{ $review->email }}</td>
+                                        <td>{{ str_limit($review->content, 60) }}</td>
+                                        <td>{{ $review->tour->name }}</td>
                                         <td>
-                                            <form action="{{ route('review.destroy', $review['id']) }}" method="POST">
+                                            <form action="{{ route('review.destroy', $review->id) }}" method="POST">
                                                 @method('DELETE')
                                                 {{ csrf_field() }}
                                                 <button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             </form>
+                                            <a href="{{ route('review.edit', $review->id) }}" class="glyphicon glyphicon-pencil"></a>
                                         </td>
                                     </tr>
                                     @endforeach

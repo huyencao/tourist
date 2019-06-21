@@ -53,18 +53,23 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td> <span class="tb_date">{{ date('d/m/Y', strtotime($item->typeTour->start_day)) }}</span>
+                                        <td> <span
+                                                class="tb_date">{{ date('d/m/Y', strtotime($item->typeTour->start_day)) }}</span>
                                         </td>
                                         <td><span class="tb_date">{{ $item->typeTour->tour_code }}</span></td>
                                         <td><span class="tb_prie">{{ number_format($item->total, 0, '.', '.') }}</span>
                                         </td>
-                                        <td><span class="tb_prie">{{ number_format($item->typeTour->baby_price, 0, '.', '.') }}</span>
+                                        <td><span
+                                                class="tb_prie">{{ number_format($item->typeTour->baby_price, 0, '.', '.') }}</span>
                                         </td>
-                                        <td><span class="tb_prie">{{ number_format($item->typeTour->child_price, 0, '.', '.') }}</span>
+                                        <td><span
+                                                class="tb_prie">{{ number_format($item->typeTour->child_price, 0, '.', '.') }}</span>
                                         </td>
-                                        <td><span class="tb_prie">{{ number_format($item->typeTour->adult_price, 0, '.', '.') }}</span>
+                                        <td><span
+                                                class="tb_prie">{{ number_format($item->typeTour->adult_price, 0, '.', '.') }}</span>
                                         </td>
-                                        <td><a href="{{ route('book', $item->slug) }}"><span class="tb_book">{{ __('Book tour') }}</span></a></td>
+                                        <td><a href="{{ route('book', $item->slug) }}"><span
+                                                    class="tb_book">{{ __('Book tour') }}</span></a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -83,46 +88,54 @@
                             <div class="tour-block-content">
                                 <div class="review-total">
                                     <span class="review-star">
-                                        @if ($rate >= 0 && $rate <= 1)<i class="fa fa-star"></i>
+                                        @if ($rate == 0)
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        @elseif ($rate > 0 && $rate <= 1)
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                             <p class="rate">{{ __('1/5 Đánh giá quá tệ') }}</p>
-                                            @elseif ($rate >= 1 && $rate <= 2) <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <p class="rate">{{ __('2/5 Đánh giá tệ') }}</p>
-                                                @elseif ($rate >= 2 && $rate <= 3) <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <p class="rate">{{ __('3/5 Đánh giá chấp nhận được') }}</p>
-                                                    @elseif ($rate >= 3 && $rate <= 4) <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <p class="rate">{{ __('4/5 Đánh giá tốt') }}</p>
-                                                        @elseif($rate >= 4)
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <p class="rate">{{ __('5/5 Đánh giá tuyệt vời') }}</p>
-                                                        @endif
+                                        @elseif ($rate >= 1 && $rate <= 2) <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <p class="rate">{{ __('2/5 Đánh giá tệ') }}</p>
+                                        @elseif ($rate >= 2 && $rate <= 3)
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <p class="rate">{{ __('3/5 Đánh giá chấp nhận được') }}</p>
+                                        @elseif ($rate >= 3 && $rate <= 4)
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <p class="rate">{{ __('4/5 Đánh giá tốt') }}</p>
+                                        @elseif ($rate >= 4)
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <p class="rate">{{ __('5/5 Đánh giá tuyệt vời') }}</p>
+                                        @endif
                                     </span>
                                     <span class="review-counter">({{ $total_comment }}
                                         {{ __('khách hàng đã đánh giá') }})</span>
                                 </div>
                                 <div class="review_comment">
                                     <h4>{{ __('Chia sẻ nhận xét về sản phẩm') }}</h4>
-                                    <button type="button" onclick="commentFunction()"
-                                        class="btn btn-default js-customer-button"
+                                    <button type="button" class="btn btn-default js-customer-button"
                                         id="button">{{ __('Viết nhận xét của bạn') }}
                                     </button>
                                 </div>
@@ -148,15 +161,13 @@
                                     <div class="form-group required">
                                         <label for="usr">{{ __('label.frontend.star_rate') }}</label>
                                         <div class="lead evaluation">
-                                            <span id="colorstar" class="starrr ratable">
-                                            </span>
+                                            <span id="colorstar" class="starrr ratable"></span>
                                             <span id="meaning"></span>
                                             <input type="hidden" name="rating" id="count">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-info"
-                                            id="saveReview">{{ __('label.frontend.save_review') }}</button>
+                                        <button type="submit" class="btn btn-info" id="saveReview">{{ __('label.frontend.save_review') }}</button>
                                     </div>
                                 </form>
                                 @endif

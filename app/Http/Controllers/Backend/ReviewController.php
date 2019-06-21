@@ -69,7 +69,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review = $this->review->findReview($id);
+
+        return view('backend.reviews.edit', compact('review'));
     }
 
     /**
@@ -81,7 +83,9 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->review->update($id, $request->all());
+
+        return redirect()->route('review.index');
     }
 
     /**
