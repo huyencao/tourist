@@ -30,7 +30,7 @@ class HomeController extends Controller
             $statusRedis = 1;
         } else {
             $data_sale = $this->tour->listTourSale();
-            Redis::set('home', json_encode($data_sale), 'EX', 900);
+            Redis::set('home', json_encode($data_sale), 'EX', 300);
             $statusRedis = 0;
         }
 

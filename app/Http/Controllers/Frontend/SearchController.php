@@ -9,8 +9,12 @@ use App\Models\Tour;
 class SearchController extends Controller
 {
     public function find(Request $request) {
-        $tour = Tour::where('name', 'like', '%' . $request->get('q') . '%')->get();
+        $price = $request->price;
+        $pos = strpos($price, '-');
+        $start_price = substr($price, 0, $pos);
+        $end_price = substr($price, $pos + 1);
+        $tour = Tour::query()->name($request)->departure($request)->destination($request)->price($start_price, $end_price)->get();
 
-        return response()->json($tour);
+        return view('frontend.home.search', compact('tour'));
     }
 }

@@ -48,4 +48,40 @@ class Tour extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function scopeName($query, $request)
+    {
+        if ($request->has('name')) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
+        }
+
+        return $query;
+    }
+
+    public function scopeDeparture($query, $request)
+    {
+        if ($request->has('starting_point')) {
+            $query->where('starting_point', 'LIKE', '%' . $request->starting_point . '%');
+        }
+
+        return $query;
+    }
+
+    public function scopeDestination($query, $request)
+    {
+        if ($request->has('destination')) {
+            $query->where('destination', 'LIKE', '%' . $request->destination . '%');
+        }
+
+        return $query;
+    }
+
+    public function scopePrice($query, $start_price, $end_price)
+    {
+        if (($start_price) && ($end_price)) {
+            return $query->where('total', '>', $start_price)->where('total', '<', $end_price);
+        }
+        
+        return $query;
+    }
 }

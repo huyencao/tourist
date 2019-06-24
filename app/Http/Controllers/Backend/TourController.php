@@ -66,7 +66,7 @@ class TourController extends Controller
 
         $total = $request->baby_price + $request->child_price + $request->adult_price;
         if ($request->sale != 0) {
-            $total_sale = $total - (($total * $request->sale) / 100);
+            $total_sale = $total - (($total * $request->sale) / config('app.total_sale'));
         } else {
             $total_sale = 0;
         }
@@ -134,7 +134,7 @@ class TourController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TourRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $total = $request->baby_price + $request->child_price + $request->adult_price;
         if ($request->sale != 0) {
