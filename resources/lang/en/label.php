@@ -76,7 +76,7 @@ return [
     'advisory' => 'Call now for advice',
     'explore_more' => 'Explore more',
     'vnd' => 'VND',
-    'review' => 'Review',
+    'review' => 'Reviews',
     'order_tour' => 'Order tour',
     'list_order' => 'List order tour',
     'name_order' => 'Tour order',

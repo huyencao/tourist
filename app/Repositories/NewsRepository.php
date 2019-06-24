@@ -47,7 +47,7 @@ class NewsRepository extends EloquentRepository
 
     public function listLatestNews($slug)
     {
-        $news = News::where('slug', '!=', $slug)->orderBy('id', 'DESC')->limit()->get(config('app.limit_news'));
+        $news = News::where('slug', '!=', $slug)->orderBy('id', 'DESC')->limit(config('app.limit_news'))->get();
 
         return $news;
     }

@@ -23,7 +23,7 @@ class ReviewRepository extends EloquentRepository
 
     public function findReview($id)
     {
-        $data = Tour::with('tour', 'review')->find($id);
+        $data = Review::with('tour', 'user')->find($id);
         if (empty($data)) {
             return false;
         } else {
@@ -34,22 +34,15 @@ class ReviewRepository extends EloquentRepository
     public function totalComment($id)
     {
         $data = Review::with('tour', 'user')->where('tour_id', $id)->count();
-        if (empty($data)) {
-            return false;
-        } else {
-            return $data;
-        }
+
+        return $data;
     }
 
     public function rateStar($id)
     {
         $data_rate = Review::with('tour', 'user')->where('tour_id', $id)->sum('star');
-        $rate = $data_rate / 5;
+        $rate = $data_rate / config('app.comments');
 
-        if (empty($rate)) {
-            return false;
-        } else {
-            return $rate;
-        }
+        return $rate;
     }
 }
