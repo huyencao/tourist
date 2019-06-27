@@ -16,7 +16,7 @@ class ReviewRepository extends EloquentRepository
 
     public function listReview()
     {
-        $reviews = Review::with('tour', 'user')->orderBy('name', 'ASC')->get();
+        $reviews = Review::with('tour', 'user')->orderBy('name', 'ASC')->limit(config('app.limit_review'))->get();
 
         return $reviews;
     }

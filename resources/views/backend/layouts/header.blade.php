@@ -1,7 +1,5 @@
-<!--nav-->
 <nav role="navigation" class="navbar navbar-custom">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle"
                 type="button">
@@ -12,23 +10,27 @@
             </button>
             <a href="{{ route('dashboard') }}" class="navbar-brand"> {{ __('Tourist') }} </a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="dropdown">
-            <a href="#" class="active">{{ Auth::user()->username }}</a>
-            <button class="dropbtn">{{ __('Setting') }}</button>
-            <ul class="dropdown-content">
-                @if (Auth::check())
-                <li>
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                        @csrf
-                    </form>
-                </li>
-                @endif
-            </ul>
+        <div class="menu-notifications">
+            <span class="notification-icon"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+            <i class="notification-holder m-menu__link-icon flaticon-music-2">
+                <span class="count-notification-circle">0</span></i>
+            <div class="dropdown-content">
+                <ul class="dropdown-notifications">
+                    <li class="dropdown-notifications-item">
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div><!-- /.container-fluid -->
+        @if (Auth::check())
+        <div class="logout">
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+            </form>
+        </div>
+        @endif
+    </div>
 </nav>

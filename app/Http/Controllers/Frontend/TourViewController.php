@@ -36,7 +36,8 @@ class TourViewController extends Controller
         $id = $data[0]->id;
         $total_comment = $this->review->totalComment($id);
         $rate = $this->review->rateStar($id);
-
-        return view('frontend.tour.detail', compact('data', 'total_comment', 'rate'));
+        $data_list = $this->review->listReview();
+        
+        return view('frontend.tour.detail', compact('data', 'total_comment', 'rate', 'data_list'));
     }
 }

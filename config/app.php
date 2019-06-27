@@ -13,6 +13,7 @@ return [
     'role' => 2,
     'ordertour' => 10,
     'comments' => 5,
+    'limit_review' => 10,
     /*
     /*
     |--------------------------------------------------------------------------
@@ -79,7 +80,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
     |--------------------------------------------------------------------------
@@ -183,7 +184,6 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
@@ -238,6 +238,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Pusher' => Pusher\Pusher::class,
 
     ],
 

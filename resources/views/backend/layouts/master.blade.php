@@ -29,5 +29,7 @@
 <script src="{{ asset('bower_components/lib_bower/Backend/ckeditor/ckeditor.js') }}"></script>
 <script> CKEDITOR.replace('editor1'); </script>
 <script src="{{ asset('bower_components/lib_bower/Backend/ckfinder/ckfinder.js') }}"></script>
+<script src="//js.pusher.com/3.1/pusher.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/review.js') }}"></script>
 @stack('scripts')
 </html>

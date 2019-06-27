@@ -1,3 +1,4 @@
+// rating review
 var __slice = [].slice;
 
 (function($, window) {
@@ -137,9 +138,57 @@ $(document).ready(function() {
         $('#count-existing').html(value);
     });
 });
+// end rating review
 
+// show - hide button comment
 $(document).ready(function() {
     $("#button").click(function() {
         $("#writeComment").toggle();
     });
+});
+
+// rating comment
+var notificationsWrapper = $('.dropdown-notifications');
+var notificationsCount = $('.count-notification-circle');
+var count = parseInt($('.count-notification-circle').text());
+var pusher = new Pusher('42b42f482ce67060fc10', { cluster: 'ap1' });
+
+// Subscribe to the channel we specified in our Laravel Event
+var channel = pusher.subscribe('comment-review');
+
+// Bind a function to a Event (the full Laravel class)
+channel.bind('App\\Events\\CommentPusherEvent', function(data) {
+    var stars = '';
+    switch (parseInt(data.star)) {
+        case 1:
+            stars = '<i class="fa fa-stars"></i>';
+            break;
+        case 2:
+            stars = '<i class="fa fa-star"></i><i class="fa fa-star"></i>';
+            break;
+        case 3:
+            stars = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class=\"fa fa-star"></i>';
+            break;
+        case 4:
+            stars = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+            break;
+        case 5:
+            stars = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+            break;
+        default:
+            stars = `Không có đánh giá`;
+
+    }
+    var newNotificationHtml = `<li class = "m-menu__item dropdown-notifications-item"
+            aria - haspopup = "true">
+            <p class = "notification-title"> ` + data.name + `</p>
+            <div class = "comment-rating"> ` + stars + ` </div>
+            <p class = "block-ellipsis"> ` + data.email + `</p>
+            <href = ""> ` + data.content + ` </a>
+            <a href = ""> ` + data.tour_name + `</a>
+            </li>
+        `;
+    notificationsWrapper.prepend(newNotificationHtml);
+    count += 1;
+    notificationsCount.text(count);
 });
