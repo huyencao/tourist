@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
 use App\Repositories\ReviewRepository;
+use App\Events\CommentPusherEvent;
 
 class RateStarController extends Controller
 {
@@ -22,6 +23,7 @@ class RateStarController extends Controller
             'star' => $request->rating,
         ]);
         $this->review->create($request->all());
+        event(new CommentPusherEvent($request));
 
         return redirect()->route('homeTourist');
     }

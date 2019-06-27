@@ -101,7 +101,8 @@
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                             <p class="rate">{{ __('1/5 Đánh giá quá tệ') }}</p>
-                                        @elseif ($rate >= 1 && $rate <= 2) <i class="fa fa-star"></i>
+                                        @elseif ($rate >= 1 && $rate <= 2)
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
@@ -171,6 +172,14 @@
                                     </div>
                                 </form>
                                 @endif
+                            </div>
+                            <div id="comments">
+                                @foreach($data_list as $comment)
+                                <div class="rv-comment">
+                                    <span class="name-comment">{{ $comment->name }}</span><br/>
+                                    <span class="content-comment">{{ $comment->content }}</span>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                         @endforeach
