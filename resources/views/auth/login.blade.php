@@ -47,14 +47,23 @@
                                 {{ __('Remember Me') }}
                             </label>
                         </div>
+                        @if (Route::has('password.request'))
+                        <a class="bottom-text-w3ls" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                        @endif
                     </div>
                 </div>
                 <button type="submit" class="btn submit">{{ __('Login') }}</button>
-                @if (Route::has('password.request'))
-                <a class="bottom-text-w3ls" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
+                <div class="txt1 text-center p-t-54 p-b-20">
+                    <span>{{ __('Or Sign Up Using') }}</span>
+                </div>
+                <a href="redirect/facebook" class="btn-face m-b-20"><i class="fa fa-facebook-official"></i>{{ __('Facebook') }}
                 </a>
-                @endif
+                <a href="redirect/google" class="btn-google m-b-20"><img src="{{ asset(config('app.img_frontend') . 'icons-google.png') }}" alt="{{ __('GOOGLE') }}">
+                    {{ __('Google') }}
+                </a>
+                <p class="message">{{ __('Not registered?') }}<a href="{{ route('register') }}">{{ __('Create an account') }}</a></p>
             </form>
         </article>
         <div class="clear"></div>
