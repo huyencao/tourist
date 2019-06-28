@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TourRepository;
 use App\Repositories\CategoryRepository;
+use Illuminate\Support\Facades\Redis;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data_sale = $this->tour->listTourSale();
+        if (Redis::exists('home')) {
+            $data_sale = json_decode(Redis::get('home'), true);
+            $statusRedis = 1;
+        } else {
+            $data_sale = $this->tour->listTourSale();
+            Redis::set('home', json_encode($data_sale), 'EX', 900);
+            $statusRedis = 0;
+        }
 
-        return view('frontend.home.main', compact('data_sale'));
+        return view('frontend.home.main', compact('data_sale', 'statusRedis'));
     }
     /**
      * Show the form for creating a new resource.

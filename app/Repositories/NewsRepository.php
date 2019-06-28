@@ -33,7 +33,7 @@ class NewsRepository extends EloquentRepository
 
     public function listNewsCate($id)
     {
-        $data = News::with('media', 'categoryNews')->where('cate_id', $id)->paginate(config('app.news'));
+        $data = News::with('media', 'categoryNews')->where('cate_id', $id)->paginate(config('app.limit_news'));
 
         return $data;
     }

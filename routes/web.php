@@ -37,6 +37,8 @@ Route::namespace('Frontend')->group(function(){
     Route::post('book-tour/{slug}', 'OrderTourController@store')->name('book.store');
     Route::get('find', 'SearchController@find');
     Route::middleware('auth')->post('comment/{id}', 'RateStarController@commentReview')->name('comment');
+    Route::get('/redirect/{social}', 'SocialAuthController@redirect');
+    Route::get('/callback/{social}', 'SocialAuthController@callback');
 });
 
 Auth::routes();

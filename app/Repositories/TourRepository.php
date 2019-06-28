@@ -6,6 +6,7 @@ use App\Repositories\EloquentRepository;
 use App\Models\Tour;
 use App\Models\CategoryTour;
 use App\Models\Media;
+use App\Models\TypeTour;
 
 class TourRepository extends EloquentRepository
 {
@@ -43,7 +44,7 @@ class TourRepository extends EloquentRepository
 
     public function listTourSale()
     {
-        $data =  Tour::with('media', 'category')->where('sale', '!=', 0)->paginate(config('app.home_view'));
+        $data =  Tour::with('media', 'typeTour', 'category')->where('sale', '!=', 0)->limit(config('app.home_view'))->get();
 
         return $data;
     }
