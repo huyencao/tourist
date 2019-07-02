@@ -188,7 +188,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        
+        'Barryvdh\Debugbar\ServiceProvider',
     ],
 
     /*
@@ -241,7 +241,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Pusher' => Pusher\Pusher::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        
     ],
 
 ];
