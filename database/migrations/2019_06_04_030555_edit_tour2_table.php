@@ -14,7 +14,7 @@ class EditTour2Table extends Migration
     public function up()
     {
         Schema::table('tours', function (Blueprint $table) {
-            $table->integer('sale')->nullable();
+            $table->integer('sale')->nullable()->change();
             $table->integer('total');
             $table->integer('total_sale')->nullable();
             $table->string('vehicle');

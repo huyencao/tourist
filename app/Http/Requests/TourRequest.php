@@ -33,7 +33,7 @@ class TourRequest extends FormRequest
             'schedule' => 'required',
             'child_price' => 'required',
             'adult_price' => 'required',
-            'tour_code' => 'required',
+            'tour_code' => 'required|unique:type_tour',
             'start_day' => 'required',
             'end_day' => 'required',
         ];

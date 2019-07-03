@@ -35,7 +35,7 @@ Route::namespace('Frontend')->group(function(){
     Route::get('chi-tiet-tin-tuc/{slug}.html', 'NewsViewController@detailNews')->name('news.detail');
     Route::get('book-tour/{slug}', 'OrderTourController@index')->name('book');
     Route::post('book-tour/{slug}', 'OrderTourController@store')->name('book.store');
-    Route::get('find', 'SearchController@find');
+    Route::post('find', 'SearchController@find')->name('search.find');
     Route::middleware('auth')->post('comment/{id}', 'RateStarController@commentReview')->name('comment');
     Route::get('/redirect/{social}', 'SocialAuthController@redirect');
     Route::get('/callback/{social}', 'SocialAuthController@callback');
