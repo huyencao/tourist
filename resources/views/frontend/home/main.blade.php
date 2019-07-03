@@ -5,19 +5,42 @@
 @section('content')
 <section>
     <div class="container">
-    <div class="search-container">
-        <form class="form-inline typeahead">
-            <div class="form-group">
-                <input type="name" class="form-control search-input" id="name" autocomplete="off"
-                    placeholder="{{ __('Search tourist..') }}">
-            </div>
-        </form>
-    </div>
+        <div class="search-container">
+            <div class="tTxt">{{ __('Xin mời Quý khách chọn thông tin cần tìm kiếm') }}</div>
+            <form action="{{ route('search.find') }}" method="post">
+            @csrf
+                <div class="grid">
+                    <div class="col1">
+                        <input type="text" name="nametour" id="nametour" placeholder="Vd: Tour du lịch...">
+                    </div>
+                    <div class="col1">
+                        <input type="text" name="starting_point" id="starting_point" placeholder="Vd: Hà Nội">
+                    </div>
+                    <div class="col1">
+                        <input type="text" name="destination" id="destination" placeholder="Vd: Đà Nẵng">
+                    </div>
+                    <div class="col1">
+                        <select name="price" class="chosen-select" id="s_price">
+                            <option value="0">{{ __('Giá (VND)') }}</option>
+                            <option value="0-1000000">{{ __('0 - 1,000,000 đ') }}</option>
+                            <option value="1000000-5000000">{{ __('1,000,000 đ - 5,000,000 đ') }}</option>
+                            <option value="5000000-10000000">{{ __('5,000,000 đ - 10,000,000 đ') }}</option>
+                            <option value="10000000-50000000">{{ __('10,000,000 đ - 50,000,000 đ') }}</option>
+                            <option value="50000000-100000000">{{ __('50,000,000 đ - 100,000,000 đ') }}</option>
+                            <option value="100000000">{{ __('Trên 100,000,000 đ') }}</option>
+                        </select>
+                    </div>
+                    <div class="col1">
+                        <button type="submit"><i class="fa fa-search icon" aria-hidden="true"></i><span>{{ __('Tìm kiếm') }}</span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- </div> -->
         <div class="row">
             <div class="col-xs-12">
                 <div class="head_title">
                     <h2> <i class="fa fa-anchor"></i> {{ __('label.frontend.cate_sale') }}</h2>
-                    <div class="hea_right"><a href="">{{ __('label.frontend.see_more') }}</a></div>
                 </div>
             </div>
             @if ($statusRedis == 1)

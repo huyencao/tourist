@@ -162,7 +162,7 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{ __('Time') }}</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="time" id="time" class="form-control">
+                                            <input type="text" name="time" id="time" class="form-control" placeholder="{{ __('label.enter_time') }}">
                                         </div>
                                     </div>
                                 </div>

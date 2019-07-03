@@ -14,6 +14,7 @@ return [
     'ordertour' => 10,
     'comments' => 5,
     'limit_review' => 10,
+    'total_sale' => 100,
     /*
     /*
     |--------------------------------------------------------------------------
@@ -242,7 +243,7 @@ return [
         'Pusher' => Pusher\Pusher::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
-        
+
     ],
 
 ];
