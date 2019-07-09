@@ -29,13 +29,13 @@
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/owl.carousel.min.js') }}" type="text/javascript">
     </script>
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/main.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('bower_components/lib_bower/Frontend/js/bloodhound.js') }}" type="text/javascript"></script>
+    <!-- <script src="{{ asset('bower_components/lib_bower/Frontend/js/bloodhound.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/typeahead.bundle.js') }}" type="text/javascript">
     </script>
     <script src="{{ asset('bower_components/lib_bower/Frontend/js/typeahead.bundle.min.js') }}" type="text/javascript">
-    </script>
+    </script> -->
     <script type="text/javascript" src="{{ asset('assets/js/frontend.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/tour.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('assets/js/tour.js') }}"></script> -->
     <script src="//js.pusher.com/3.1/pusher.min.js"></script>
     @stack('scripts')
 </body>

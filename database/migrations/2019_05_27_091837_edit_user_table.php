@@ -15,6 +15,7 @@ class EditUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('password_reset')->nullable();
+            $table->integer('role')->nullable()->change();
         });
     }
 
@@ -27,6 +28,7 @@ class EditUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('password_reset');
+            $table->dropColumn('role');
         });
     }
 }

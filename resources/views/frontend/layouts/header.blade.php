@@ -12,7 +12,7 @@
                         <div class="area-info f-right user-info">
                             <div class="obj pos-relative">
                                 <img src="{{ asset(config('app.img_frontend') . 'user.png') }}"
-                                    alt="{{ __('Tài khoản') }}" class="dropdown-toggle" data-toggle="dropdown"
+                                    alt="{{ __('Tài khoản') }}" class="dropdown-toggle img-user" data-toggle="dropdown"
                                     aria-expanded="true">
                                 @if (!Auth::check())
                                 <ul class="dropdown-menu">
@@ -25,18 +25,18 @@
                                 </ul>
                                 @endif
                                 @if (Auth::check())
-                                <a href="#" class="active">{{ Auth::user()->fullname }}</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
+                                    <a href="#" class="active">{{ Auth::user()->fullname }}</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
                                 @endif
                             </div>
                         </div>

@@ -14,7 +14,7 @@ class EditMenu2Table extends Migration
     public function up()
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->integer('cate_id')->nullable();
+            $table->integer('cate_id')->nullable()->change();
             $table->string('link')->nullable();
         });
     }
@@ -27,7 +27,7 @@ class EditMenu2Table extends Migration
     public function down()
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->dropColumn('cate_id')->change();
+            $table->dropColumn('cate_id');
             $table->dropColumn('link');
         });
     }

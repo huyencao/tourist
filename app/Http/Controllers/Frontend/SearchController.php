@@ -13,7 +13,7 @@ class SearchController extends Controller
         $pos = strpos($price, '-');
         $start_price = substr($price, 0, $pos);
         $end_price = substr($price, $pos + 1);
-        $tour = Tour::query()->name($request)->departure($request)->destination($request)->price($start_price, $end_price)->get();
+        $tour = Tour::query()->name($request)->departure($request)->destination($request)->get();
 
         return view('frontend.home.search', compact('tour'));
     }

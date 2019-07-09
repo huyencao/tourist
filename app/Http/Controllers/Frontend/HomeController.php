@@ -27,13 +27,13 @@ class HomeController extends Controller
     {
         if (Redis::exists('home')) {
             $data_sale = json_decode(Redis::get('home'), true);
+    
             $statusRedis = 1;
         } else {
             $data_sale = $this->tour->listTourSale();
-            Redis::set('home', json_encode($data_sale), 'EX', 300);
+            Redis::set('home', json_encode($data_sale), 'EX', 100);
             $statusRedis = 0;
         }
-
         return view('frontend.home.main', compact('data_sale', 'statusRedis'));
     }
     /**

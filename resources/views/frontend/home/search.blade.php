@@ -6,7 +6,7 @@
 <section>
     <div class="container">
         <div class="search-container">
-            <div class="tTxt">{{ __('Xin mời Quý khách chọn thông tin cần tìm kiếm') }}</div>
+            <div class="title-search">{{ __('Xin mời Quý khách chọn thông tin cần tìm kiếm') }}</div>
             <form action="{{ route('search.find') }}" method="post">
                 @csrf
                 <div class="grid">
@@ -19,7 +19,7 @@
                     <div class="col1">
                         <input type="text" name="destination" id="destination" placeholder="Vd: Đà Nẵng">
                     </div>
-                    <div class="col1">
+                    <!-- <div class="col1">
                         <select name="price" class="chosen-select" id="s_price">
                             <option value="0">Giá (VND)</option>
                             <option value="0-1000000">{{ __('0 - 1,000,000 đ') }}</option>
@@ -29,7 +29,7 @@
                             <option value="50000000-100000000">{{ __('30,000,000 đ - 40,000,000 đ') }}</option>
                             <option value="100000000">{{ __('Trên 50,000,000 đ') }}</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="col1">
                         <button type="submit"><i class="fa fa-search icon"
                                 aria-hidden="true"></i><span>{{ __('Tìm kiếm') }}</span></button>

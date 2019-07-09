@@ -27,7 +27,6 @@
             <div class="list_tour">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#khachle">{{ $result->name }}</a></li>
-                    <!-- <li><a data-toggle="tab" href="#khachdoan">Tour khách đoàn</a></li> -->
                 </ul>
                 <div class="tab-content">
                     <div id="khachle" class="tab-pane fade in active">

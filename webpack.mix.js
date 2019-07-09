@@ -17,5 +17,5 @@ mix.copyDirectory('resources/assets/js/index.js', 'public/assets/js/index.js')
     .copyDirectory('resources/assets/js/tour.js', 'public/assets/js/tour.js')
     .copyDirectory('resources/assets/js/review.js', 'public/assets/js/review.js')
     .sass('resources/sass/app.scss', 'public/css/app.css');
-mix.copyDirectory('resources/images', 'public/images/');
-mix.copyDirectory('resources/uploads', 'public/uploads/');
+// mix.copyDirectory('resources/images', 'public/images/');
+// mix.copyDirectory('resources/uploads', 'public/uploads/');

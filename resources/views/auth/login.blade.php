@@ -55,15 +55,27 @@
                     </div>
                 </div>
                 <button type="submit" class="btn submit">{{ __('Login') }}</button>
-                <div class="txt1 text-center p-t-54 p-b-20">
+                <div class="sign-up">
                     <span>{{ __('Or Sign Up Using') }}</span>
                 </div>
-                <a href="redirect/facebook" class="btn-face m-b-20"><i class="fa fa-facebook-official"></i>{{ __('Facebook') }}
-                </a>
-                <a href="redirect/google" class="btn-google m-b-20"><img src="{{ asset(config('app.img_frontend') . 'icons-google.png') }}" alt="{{ __('GOOGLE') }}">
-                    {{ __('Google') }}
-                </a>
-                <p class="message">{{ __('Not registered?') }}<a href="{{ route('register') }}">{{ __('Create an account') }}</a></p>
+                <div class="social">
+                    <div class="facebook">
+                        <img src="{{ asset(config('app.img_frontend') . 'icons-facebook.png') }}"
+                            alt="{{ __('FACEBOOK') }}">
+                        <a href="redirect/facebook" class="btn-face m-b-20">
+                            {{ __('Facebook') }}
+                        </a>
+                    </div>
+                    <div class="google">
+                        <img src="{{ asset(config('app.img_frontend') . 'icons-google.png') }}"
+                            alt="{{ __('GOOGLE') }}">
+                        <a href="redirect/google" class="btn-google m-b-20">
+                            {{ __('Google') }}
+                        </a>
+                    </div>
+                </div>
+                <p class="message">{{ __('Not registered?') }}<a
+                        href="{{ route('register') }}">{{ __('Create an account') }}</a></p>
             </form>
         </article>
         <div class="clear"></div>

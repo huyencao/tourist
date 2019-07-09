@@ -6,7 +6,7 @@
 <section>
     <div class="container">
         <div class="search-container">
-            <div class="tTxt">{{ __('Xin mời Quý khách chọn thông tin cần tìm kiếm') }}</div>
+            <div class="title-search">{{ __('Xin mời Quý khách chọn thông tin cần tìm kiếm') }}</div>
             <form action="{{ route('search.find') }}" method="post">
             @csrf
                 <div class="grid">
@@ -19,7 +19,7 @@
                     <div class="col1">
                         <input type="text" name="destination" id="destination" placeholder="Vd: Đà Nẵng">
                     </div>
-                    <div class="col1">
+                    <!-- <div class="col1">
                         <select name="price" class="chosen-select" id="s_price">
                             <option value="0">{{ __('Giá (VND)') }}</option>
                             <option value="0-1000000">{{ __('0 - 1,000,000 đ') }}</option>
@@ -29,7 +29,7 @@
                             <option value="50000000-100000000">{{ __('50,000,000 đ - 100,000,000 đ') }}</option>
                             <option value="100000000">{{ __('Trên 100,000,000 đ') }}</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="col1">
                         <button type="submit"><i class="fa fa-search icon" aria-hidden="true"></i><span>{{ __('Tìm kiếm') }}</span></button>
                     </div>
@@ -51,9 +51,9 @@
                             <div class="item_content">
                                 <h3><a href="{{ route('tour.detail', $sale['slug']) }}">{{ str_limit($sale['name'], 50) }}</a></h3>
                                 <div class="box_content">
-                                    <p><span class="day"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ $sale['typeTour']['time'] }}</span>
+                                    <p><span class="day"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ $sale['type_tour']['time'] }}</span>
                                         <span class="price_old">{{ number_format($sale['total'], 0, '.', '.') }}</span></p>
-                                    <p><span class="date"><i class="fa fa-calendar"></i>{{ date('d/m/Y', strtotime($sale['typeTour']['start_day'])) }}</span>
+                                    <p><span class="date"><i class="fa fa-calendar"></i>{{ date('d/m/Y', strtotime($sale['type_tour']['start_day'])) }}</span>
                                        <span class="price_new">{{ number_format($sale['total_sale'], 0, '.', '.') }}</span></p>
                                 </div>
                             </div>

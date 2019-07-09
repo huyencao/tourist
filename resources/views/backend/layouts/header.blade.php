@@ -22,14 +22,17 @@
             </div>
         </div>
         @if (Auth::check())
-        <div class="logout">
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                @csrf
-            </form>
+        <div class="user-admin">
+            <a href="#" class="active">{{ Auth::user()->username }}</a>
+            <div class="logout">
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
+            </div>
         </div>
         @endif
     </div>

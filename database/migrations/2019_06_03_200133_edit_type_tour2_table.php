@@ -14,7 +14,7 @@ class EditTypeTour2Table extends Migration
     public function up()
     {
         Schema::table('type_tour', function (Blueprint $table) {
-            $table->integer('baby_price')->nullable();
+            $table->integer('baby_price')->nullable()->change();
             $table->string('time');
         });
     }
